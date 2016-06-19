@@ -5,17 +5,25 @@
  */
 package hashmap;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Kudesnik
  */
-public class HashMap {
+public class HashMapSample {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+        HashMap myHashMap = new HashMap();
+        
+        myHashMap.
+        
     }
     
 }
