@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.*;
 
 
 /**
@@ -17,9 +18,20 @@ import java.util.Set;
  */
 public class HashMapSample {
 
+    
+    interface Prt<T>
+    {
+        void print(T t);
+    }
     /**
      * @param args the command line arguments
      */
+    void proba(Consumer<String> o)
+        {
+            System.out.print(o.toString()+" ");
+            System.err.println(o);
+        }
+
     public static void main(String[] args) {
         // TODO code application logic here
         
@@ -85,10 +97,30 @@ public class HashMapSample {
         System.out.println(str3);
         String str4;
         //str4 = ()->"z".concat("3");
-        
-//       myHashMap.merge("Россия", "+00", (v1, v2)->v1.concat(v2));
+
+
+//      myHashMap.merge("Россия", "+00", (v1, v2)->v1.concat(v2));        
+ //      myHashMap.merge("Россия", "+00", (v1, v2)->(String)v1.concat(v2));
 //        myHashMap.merge("Россия", "+00", String::concat);
 //        System.out.println(myHashMap);
+
+
+//~~~~~~~~~~~~~~~~
+//        Prt proba = 
+        kv.forEach(System.out::print);
+        kv.forEach(value -> {
+            System.out.println("   2121 ");
+            System.out.println(value);});
+        
+        
+       // System.out.println();
+        Consumer<Object> cons = System.out::println;
+        Consumer<Object> cons2 = value -> System.err.println("  dsd "+value);
+        cons.accept(kv);
+        cons2.accept(kv);
+//        proba(kv);
+
+
     }
     
 }
